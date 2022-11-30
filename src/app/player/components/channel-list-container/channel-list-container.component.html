@@ -1,0 +1,38 @@
+<mat-tab-group color="primary" backgroundColor="primary">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">list</mat-icon>
+            <div class="tab-title">
+                {{ 'CHANNELS.ALL_CHANNELS' | translate }}
+            </div>
+        </ng-template>
+        <mat-list>
+            <mat-list-item>
+                <input class="full-width search-bar" type="search" #search
+                    [placeholder]="'CHANNELS.SEARCH_CHANNEL' | translate" [(ngModel)]="searchTerm.name" />
+            </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+            <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
+                <mat-list-item *cdkVirtualFor="
+                        let channel of _channelList
+                            | filterBy: searchTerm.name:'name';
+                        index as i;
+                        trackBy: trackByFn
+                    " [class.active]="selected?.id === channel.id" (click)="selectChannel(channel)">
+                    <div class="channel-logo" *ngIf="channel.tvg.logo">
+                        <img [src]="channel.tvg.logo" width="48" onerror="this.style.display='none'" />
+                    </div>
+                    <p matLine class="channel-name">
+                        {{
+                        i + 1 + '. ' + channel?.name ||
+                        ('CHANNELS.UNNAMED_CHANNEL' | translate)
+                        }}
+                    </p>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </cdk-virtual-scroll-viewport>
+        </mat-nav-list>
+    </mat-tab>
+</mat-tab-group>

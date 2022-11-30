@@ -1,0 +1,493 @@
+::ng-deep {
+    .mat-tab-label-content {
+        text-transform: uppercase;
+    }
+
+    .mat-tab-group.mat-background-primary .mat-tab-header-pagination {
+        display: none;
+    }
+}
+
+.playlists-container {
+    grid-area: playlists;
+}
+
+.recent-playlists {
+    height: calc(100vh - 152px);
+    overflow: auto;
+    width: 100%;
+    display: block;
+}
+.btn-watch {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+/* 6 */
+.btn-6 {
+    background: rgb(247, 150, 192);
+    background: radial-gradient(
+        circle,
+        rgba(247, 150, 192, 1) 0%,
+        rgba(118, 174, 241, 1) 100%
+    );
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+.btn-6 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.btn-6:before,
+.btn-6:after {
+    position: absolute;
+    content: '';
+    height: 0%;
+    width: 1px;
+    box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1),
+        -4px -4px 5px 0px rgba(255, 255, 255, 1),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.4), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.btn-6:before {
+    right: 0;
+    top: 0;
+    transition: all 500ms ease;
+}
+.btn-6:after {
+    left: 0;
+    bottom: 0;
+    transition: all 500ms ease;
+}
+.btn-6:hover {
+    background: transparent;
+    color: #76aef1;
+    box-shadow: none;
+}
+.btn-6:hover:before {
+    transition: all 500ms ease;
+    height: 100%;
+}
+.btn-6:hover:after {
+    transition: all 500ms ease;
+    height: 100%;
+}
+.btn-6 span:before,
+.btn-6 span:after {
+    position: absolute;
+    content: '';
+    box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1),
+        -4px -4px 5px 0px rgba(255, 255, 255, 1),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.4), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.btn-6 span:before {
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 0.5px;
+    transition: all 500ms ease;
+}
+.btn-6 span:after {
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 0.5px;
+    transition: all 500ms ease;
+}
+.btn-6 span:hover:before {
+    width: 100%;
+}
+.btn-6 span:hover:after {
+    width: 100%;
+}
+
+.btn-watch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 160px;
+}
+
+@media only screen and (max-width: 480px) {
+    .tab-title {
+        display: none;
+    }
+}
+
+$primaryByc: #151515;
+$secondary: crimson;
+$wheelRadius: 120px;
+$tubeHeight: 5px;
+$tubeWidth: 100px;
+$saddleWidth: 50px;
+$saddleHeight: 10px;
+
+.bicycle-container {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 350px;
+    height: 300px;
+    // overflow: hidden;
+    .wheel {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        width: $wheelRadius;
+        height: $wheelRadius;
+        box-shadow: 0 10px 15px -12px rgba(0, 0, 0, 0.3);
+        .tire {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: inherit;
+            height: inherit;
+            border-radius: 50%;
+            border: 10px solid $primaryByc;
+            z-index: 2;
+        }
+        .rim {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: $wheelRadius * 0.95;
+            height: $wheelRadius * 0.95;
+            border-radius: 50%;
+            border: 10px solid $secondary;
+            z-index: 1;
+        }
+        .spokes {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: $wheelRadius * 0.65;
+            height: $wheelRadius * 0.65;
+            border-radius: 50%;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-top: 3px solid $secondary;
+            z-index: 1;
+            animation: rt 2s infinite linear;
+            background: rgba(200, 100, 100, 0.1);
+            &:nth-of-type(3) {
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-bottom: 3px solid $secondary;
+            }
+        }
+        .hub {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: $wheelRadius * 0.2;
+            height: $wheelRadius * 0.2;
+            border-radius: 50%;
+            background: $secondary;
+        }
+    }
+    .back-wheel {
+        left: 0;
+    }
+    .front-wheel {
+        right: 0;
+    }
+    .gear {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: calc(#{$wheelRadius} + #{$wheelRadius * 0.33});
+        width: $wheelRadius * 0.3;
+        height: $wheelRadius * 0.3;
+        border-radius: 50%;
+        background: $primaryByc;
+        z-index: 4;
+        animation: rt 3s infinite linear;
+        .gear-red {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: $wheelRadius * 0.2;
+            height: $wheelRadius * 0.2;
+            border-radius: 50%;
+            border: 3px solid $secondary;
+        }
+        .pedal-tube {
+            position: absolute;
+            margin: auto;
+            top: -30px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: rotate(-90deg);
+            width: $tubeWidth * 0.2;
+        }
+        .pedal {
+            position: absolute;
+            margin: auto;
+            top: -50px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+            height: 5px;
+            background: $secondary;
+            border-radius: 5px;
+            z-index: 3;
+        }
+    }
+    .tube {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        height: $tubeHeight;
+        border-radius: $tubeHeight;
+        background: $primaryByc;
+        z-index: 3;
+    }
+    .chain-tube {
+        left: calc(#{$wheelRadius} / 2);
+        width: $tubeWidth * 1.2;
+    }
+    .seat-tube-back {
+        left: calc(#{$wheelRadius} / 2);
+        transform-origin: left;
+        transform: rotate(-60deg);
+        width: $tubeWidth * 1.2;
+    }
+    .seat-tube-front {
+        left: calc(#{$wheelRadius} / 2);
+        transform-origin: right;
+        transform: rotate(60deg);
+        width: $tubeWidth * 1.2;
+    }
+    .seat-tube-post {
+        left: calc((#{$wheelRadius} / 2) - 20px);
+        transform-origin: right;
+        transform: rotate(60deg);
+        background: $secondary;
+        z-index: 1;
+        height: calc(#{$tubeHeight} - 1px);
+        width: $tubeWidth * 1.4;
+    }
+    .top-tube {
+        left: $wheelRadius;
+        bottom: initial;
+        top: 44px;
+        width: $tubeWidth * 1.13;
+    }
+    .top-handlebar-tube {
+        right: $wheelRadius - 8px;
+        bottom: initial;
+        top: 25px;
+        width: $tubeWidth * 0.2;
+        background: $secondary;
+    }
+    .top-handlebar-tube2 {
+        right: $wheelRadius - 30px;
+        bottom: initial;
+        top: 25px;
+        width: $tubeWidth * 0.25;
+        background: $primaryByc;
+        border-radius: 0%;
+    }
+    .down-tube {
+        left: calc(#{$wheelRadius} + #{$wheelRadius * 0.5});
+        width: $tubeWidth;
+        transform-origin: left;
+        transform: rotate(-50deg);
+    }
+    .head-tube {
+        right: calc(#{$wheelRadius} / 2);
+        transform-origin: right;
+        transform: rotate(60deg);
+        width: $tubeWidth * 1.2;
+    }
+    .head-tube-post {
+        right: calc(#{$wheelRadius} / 2);
+        transform-origin: right;
+        transform: rotate(60deg);
+        width: $tubeWidth * 1.4;
+        background: $secondary;
+        z-index: 1;
+        height: calc(#{$tubeHeight} - 1px);
+    }
+    .saddle {
+        position: absolute;
+        margin: auto;
+        top: 20px;
+        left: $tubeWidth * 0.85;
+        width: $saddleWidth;
+        height: $saddleHeight;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 100%;
+        border-bottom-left-radius: 50%;
+        background: $primaryByc;
+        z-index: 2;
+    }
+    .handlebars {
+        position: absolute;
+        margin: auto;
+        top: 25px;
+        right: calc(#{$tubeWidth} / 2 + 25px);
+        width: 30px;
+        height: 30px;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-top: $tubeHeight solid $primaryByc;
+        border-right: $tubeHeight solid $primaryByc;
+        border-bottom: $tubeHeight solid $secondary;
+        z-index: 2;
+    }
+}
+
+.bicycle {
+    display: block;
+    position: relative;
+    height: calc(100vh - 330px);
+}
+.ground-container {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    .ground {
+        position: absolute;
+        margin: auto;
+        animation: mv infinite linear;
+        background: $secondary;
+        z-index: -1;
+    }
+    .ground1 {
+        bottom: 0;
+        right: -150px;
+        width: 100px;
+        height: 4px;
+        border-radius: 10px;
+        animation-duration: 3s;
+        z-index: 5;
+        &:before {
+            content: '';
+            position: absolute;
+            margin: auto;
+            top: -60px;
+            left: 150px;
+            width: 40px;
+            height: 30px;
+            border-top-right-radius: 60%;
+            border-top-left-radius: 30%;
+            border-bottom-left-radius: 20%;
+            background: $primaryByc;
+        }
+    }
+    .ground2 {
+        bottom: 70px;
+        right: -250px;
+        width: 100px;
+        height: 2px;
+        border-radius: 10px;
+        animation-duration: 4s;
+        &:before {
+            content: '';
+            position: absolute;
+            margin: auto;
+            top: -30px;
+            left: 200px;
+            width: 20px;
+            height: 10px;
+            border-top-right-radius: 60%;
+            border-top-left-radius: 30%;
+            border-bottom-left-radius: 20%;
+            background: $primaryByc;
+        }
+    }
+    .ground3 {
+        top: 50px;
+        right: -300px;
+        width: 100px;
+        height: 2px;
+        border-radius: 10px;
+        animation-duration: 5s;
+        &:before {
+            content: '';
+            position: absolute;
+            margin: auto;
+            top: 10px;
+            left: -100px;
+            width: 10px;
+            height: 5px;
+            border-top-right-radius: 60%;
+            border-top-left-radius: 30%;
+            border-bottom-left-radius: 20%;
+            background: $primaryByc;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-watch-container {
+        height: calc(100vh - 124px);
+    }
+    .ground-container {
+        display: none;
+    }
+    .bicycle-container {
+        display: none;
+    }
+    .bicycle {
+        display: none;
+    }
+}
+
+@keyframes rt {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes mv {
+    100% {
+        right: 900px;
+    }
+}
